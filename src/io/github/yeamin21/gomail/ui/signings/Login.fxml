@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="panelLoginRegistration" prefHeight="612" prefWidth="923" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.yeamin21.gomail.ui.signings.ControllerLogin">
+   <children>
+      <Pane fx:id="panelLogin" prefHeight="612.0" prefWidth="931.0">
+         <children>
+            <Pane prefHeight="612.0" prefWidth="398.0" style="-fx-background-color: #27ae60;" />
+            <Button fx:id="buttonLogin" layoutX="656.0" layoutY="366.0" mnemonicParsing="false" onMouseClicked="#Login" prefHeight="27.0" prefWidth="70.0" text="Login" />
+            <PasswordField fx:id="passwordfieldPassword" layoutX="558.0" layoutY="289.0" prefHeight="35.0" prefWidth="252.0" />
+            <TextField fx:id="textfieldEmail" layoutX="558.0" layoutY="219.0" prefHeight="35.0" prefWidth="252.0" />
+            <Label layoutX="486.0" layoutY="228.0" text="Email" />
+            <Label layoutX="486.0" layoutY="298.0" text="Password" />
+            <Label fx:id="labelCreateAccount" layoutX="606.0" layoutY="429.0" onMouseClicked="#toSignUpPanel" text="No Account? Click to create one" textOverrun="WORD_ELLIPSIS" underline="true" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

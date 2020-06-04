@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="612.0" prefWidth="923.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.yeamin21.gomail.ui.mail.ControllerMailbox">
+   <children>
+      <Pane id="MailboxSidePanel" fx:id="panelMailboxSide" layoutY="-2.0" prefHeight="616.0" prefWidth="224.0" style="-fx-background-color: #2980b9;">
+         <children>
+            <Button id="ComposeMailButton" fx:id="buttonComposeMail" layoutX="3.0" layoutY="193.0" mnemonicParsing="false" onMouseClicked="#AddNewProjectPanel" prefHeight="37.0" prefWidth="218.0" style="-fx-background-radius: 0,0,0,0;" text="Compose" />
+            <Label fx:id="labelUser" layoutX="84.0" layoutY="89.0" prefHeight="17.0" prefWidth="43.0" textAlignment="CENTER" />
+            <Button fx:id="buttonInbox" layoutY="121.0" mnemonicParsing="false" onMouseClicked="#actionInbox" prefHeight="43.0" prefWidth="224.0" text="Inbox" />
+         </children></Pane>
+      <Pane id="MailboxBodyPanel" fx:id="panelMailboxBody" layoutX="224.0" prefHeight="612.0" prefWidth="699.0" />
+   </children>
+</AnchorPane>

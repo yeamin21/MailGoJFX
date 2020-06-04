@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="612.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.yeamin21.gomail.ui.mail.ControllerInbox">
+   <children>
+      <TextArea layoutX="327.0" layoutY="36.0" prefHeight="535.0" prefWidth="359.0" />
+      <TableView fx:id="aTable" layoutX="15.0" layoutY="36.0" prefHeight="535.0" prefWidth="305.0">
+        <columns>
+          <TableColumn fx:id="cDate" prefWidth="75.0" text="Date" />
+          <TableColumn fx:id="cSubject" prefWidth="75.0" text="Subject" />
+            <TableColumn fx:id="cSender" prefWidth="75.0" text="Sender" />
+            <TableColumn fx:id="cBody" prefWidth="75.0" text="Body" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
