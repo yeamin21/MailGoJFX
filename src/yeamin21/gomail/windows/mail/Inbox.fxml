@@ -14,7 +14,7 @@
             <TableColumn fx:id="cBody" prefWidth="102.0" text="Body" />
         </columns>
       </TableView>
-      <Button layoutX="634.0" layoutY="549.0" mnemonicParsing="false" text="Delete" />
+      <Button layoutX="634.0" layoutY="549.0" mnemonicParsing="false" onMouseClicked="#DeleteSelectedMail" text="Delete" />
       <Button layoutX="350.0" layoutY="549.0" mnemonicParsing="false" text="Add Sender To Contact" />
       <Button layoutX="509.0" layoutY="549.0" mnemonicParsing="false" text="Archive" />
       <Button layoutX="574.0" layoutY="549.0" mnemonicParsing="false" text="Reply" />

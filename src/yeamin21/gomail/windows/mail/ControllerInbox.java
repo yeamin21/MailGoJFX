@@ -25,42 +25,44 @@ public class ControllerInbox implements Initializable {
     @FXML
     TableView aTable;
     @FXML
-    ObservableList<Mails> data= FXCollections.observableArrayList();;
+    ObservableList<Mails> data= FXCollections.observableArrayList();
+    Mails selectedMail;
    @Override
     public void initialize(URL location, ResourceBundle resources) {
-       FetchMails mail=new FetchMails(ControllerLogin.userEmail);
-       mail.Read();
-       for(Mails aMail:mail.mails)
-       {
-           data.add(aMail);
-       }
+       addMailsToTable();
 
-       cSender.setCellValueFactory(new PropertyValueFactory<>("sender"));
-       cDate.setCellValueFactory(new PropertyValueFactory<>("date"));
-       cSubject.setCellValueFactory(new PropertyValueFactory<>("subject"));
-       cBody.setCellValueFactory(new PropertyValueFactory<>("body"));
+    }
+    void addMailsToTable()
+    {
+        FetchMails mail=new FetchMails(ControllerLogin.userEmail);
+        mail.Read();
+        for(Mails aMail:mail.mails)
+        {
+            data.add(aMail);
+        }
 
-       aTable.setItems(data);
-
-
-
-
-
-
-
+        cSender.setCellValueFactory(new PropertyValueFactory<>("sender"));
+        cDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        cSubject.setCellValueFactory(new PropertyValueFactory<>("subject"));
+        cBody.setCellValueFactory(new PropertyValueFactory<>("body"));
+        aTable.setItems(data);
     }
     public void onTableClick() {
         if (aTable.getSelectionModel().getSelectedItem() != null) {
-            Mails aMail = (Mails) aTable.getSelectionModel().getSelectedItem();
-            mailBody.setText("From: "+aMail.getSender()+"\n");
-            mailBody.appendText("Subject: "+aMail.getSubject()+"\n");
-            mailBody.appendText("\n"+aMail.getBody()+"\n");
+            selectedMail= (Mails) aTable.getSelectionModel().getSelectedItem();
+            mailBody.setText("From: "+selectedMail.getSender()+"\n");
+            mailBody.appendText("Subject: "+selectedMail.getSubject()+"\n");
+            mailBody.appendText("\n"+selectedMail.getBody()+"\n");
+            new FetchMails(selectedMail).Update();
 
         }
     }
+    @FXML
+    void DeleteSelectedMail()
+    {
+        new FetchMails(selectedMail).Delete();
 
-
-
+    }
 
 
 }

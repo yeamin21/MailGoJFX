@@ -8,6 +8,7 @@ package yeamin21.gomail.base.mail;
 import yeamin21.gomail.windows.ConnectDB;
 
 import javax.xml.crypto.Data;
+import java.security.SecureRandom;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,10 +23,15 @@ public class FetchMails implements DatabaseOperations {
     Connection con=ConnectDB.connect();
     public ArrayList<Mails>mails=new ArrayList<>();
     String userEmail;
+    Mails mail;
 
     public FetchMails(String userEmail) {
 
         this.userEmail=userEmail;
+    }
+    public FetchMails(Mails mail)
+    {
+        this.mail=mail;
     }
 
 
@@ -58,11 +64,26 @@ public class FetchMails implements DatabaseOperations {
 
     @Override
     public void Update() {
+        String SQL_UPDATE="UPDATE mail set status_read=true where mail_id="+this.mail.getCode();
+        try {
+            PreparedStatement preparedStatement=con.prepareStatement(SQL_UPDATE);
+            preparedStatement.execute();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 
     }
 
+
     @Override
     public void Delete() {
+        String SQL_DELETE="Delete from mail where mail_id="+this.mail.getCode();
+        try {
+            PreparedStatement preparedStatement=con.prepareStatement(SQL_DELETE);
+            preparedStatement.execute();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 
     }
 }
