@@ -17,13 +17,27 @@ public class UserContacts implements DatabaseOperations {
     Connection con= ConnectDB.connect();
     public String loggedInUser;
     ArrayList<Contact>contacts=new ArrayList<>();
+=======
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class UserContacts implements DatabaseOperations {
+    private Mails mail;
+    Connection con= ConnectDB.connect();
+    public String loggedInUser;
+>>>>>>> 9fbf79b... add contacts
     public UserContacts(Mails mail)
     {
        this.mail=mail;
     }
+<<<<<<< HEAD
     public UserContacts(Contact contact){
         this.contact=contact;
     }
+=======
+>>>>>>> 9fbf79b... add contacts
 
     @Override
     public void Create() {
@@ -41,6 +55,7 @@ public class UserContacts implements DatabaseOperations {
 
     @Override
     public void Read() {
+<<<<<<< HEAD
         String SQL_GETCONTACTS="SELECT contact_email,first_name,last_name "+
                 "from  contacts right join `user` " +
                 "on contacts.contact_email=`user`.email where user_email='"+this.loggedInUser+"'";
@@ -59,15 +74,22 @@ public class UserContacts implements DatabaseOperations {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+=======
+>>>>>>> 9fbf79b... add contacts
 
     }
 
     @Override
     public void Update() {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9fbf79b... add contacts
     }
 
     @Override
     public void Delete() {
+<<<<<<< HEAD
         String SQL_DELETECONTACT="DELETE FROM CONTACTS WHERE `user_email`='"+this.loggedInUser+
                 "' and `contact_email`='"+this.contact.getEmail()+"'";
 
@@ -77,5 +99,8 @@ public class UserContacts implements DatabaseOperations {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+=======
+
+>>>>>>> 9fbf79b... add contacts
     }
 }
