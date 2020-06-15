@@ -86,4 +86,5 @@ public class FetchMails implements DatabaseOperations {
         }
 
     }
+
 }
