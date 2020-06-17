@@ -1,10 +1,8 @@
 package yeamin21.gomail.windows.mail;
 
 
-import javafx.scene.input.MouseEvent;
 import yeamin21.gomail.base.mail.FetchMails;
 import yeamin21.gomail.base.mail.Mails;
-import yeamin21.gomail.base.user.Contact;
 import yeamin21.gomail.base.user.UserContacts;
 import yeamin21.gomail.windows.signings.ControllerLogin;
 import javafx.collections.FXCollections;

@@ -11,17 +11,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class UserContacts implements DatabaseOperations {
+public class UserContacts extends Users implements DatabaseOperations {
     private Mails mail;
-    private Contact contact;
+    private Users contact;
     Connection con= ConnectDB.connect();
     public String loggedInUser;
-    ArrayList<Contact>contacts=new ArrayList<>();
+    ArrayList<UserContacts>contacts=new ArrayList<>();
+    UserContacts(){}
     public UserContacts(Mails mail)
     {
        this.mail=mail;
     }
-    public UserContacts(Contact contact){
+    public UserContacts(Users contact){
         this.contact=contact;
     }
 
@@ -51,7 +52,7 @@ public class UserContacts implements DatabaseOperations {
             ResultSet rs=stm.executeQuery();
             while (rs.next())
             {
-                Contact contact=new Contact();
+               UserContacts contact=new UserContacts();
                 contact.setFirstName("first_name");
                 contact.setEmail("contact_email");
                 contact.setLastName("last_name");

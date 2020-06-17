@@ -1,13 +1,10 @@
 package yeamin21.gomail.windows.user;
 
-import yeamin21.gomail.base.user.Contact;
-import yeamin21.gomail.windows.signings.ControllerLogin;
+import yeamin21.gomail.base.user.UserContacts;
 
 public class ControllerContact {
 
     void addContact()
     {
-        Contact contact=new Contact();
-        contact.setUser(ControllerLogin.userEmail);
     }
 }
