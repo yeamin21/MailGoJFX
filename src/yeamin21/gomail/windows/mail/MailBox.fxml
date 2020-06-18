@@ -9,9 +9,9 @@
          <children>
             <Button id="ComposeMailButton" fx:id="buttonComposeMail" layoutX="3.0" layoutY="193.0" mnemonicParsing="false" onMouseClicked="#AddNewProjectPanel" prefHeight="50.0" prefWidth="218.0" style="-fx-background-radius: 0,0,0,0;" text="Compose" />
             <Label fx:id="labelUser" layoutX="84.0" layoutY="89.0" prefHeight="17.0" prefWidth="43.0" textAlignment="CENTER" />
-            <Button fx:id="buttonInbox" layoutY="121.0" mnemonicParsing="false" onMouseClicked="#actionInbox" prefHeight="50.0" prefWidth="224.0" text="Inbox" />
+            <Button fx:id="buttonInbox" layoutY="126.0" mnemonicParsing="false" onMouseClicked="#actionInbox" prefHeight="50.0" prefWidth="224.0" text="Inbox" />
             <Button layoutX="3.0" layoutY="259.0" mnemonicParsing="false" onMouseClicked="#actionArchive" prefHeight="50.0" prefWidth="218.0" text="Archive" />
-            <Button layoutX="3.0" layoutY="324.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="218.0" text="Contacts" />
+            <Button layoutX="3.0" layoutY="323.0" mnemonicParsing="false" onMouseClicked="#actionContact" prefHeight="50.0" prefWidth="218.0" text="Contacts" />
          </children></Pane>
       <Pane id="MailboxBodyPanel" fx:id="panelMailboxBody" layoutX="224.0" prefHeight="612.0" prefWidth="699.0" />
    </children>

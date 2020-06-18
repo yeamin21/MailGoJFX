@@ -16,14 +16,11 @@ public class UserContacts extends Users implements DatabaseOperations {
     private Users contact;
     Connection con= ConnectDB.connect();
     public String loggedInUser;
-    ArrayList<UserContacts>contacts=new ArrayList<>();
-    UserContacts(){}
+    public ArrayList<UserContacts>contacts=new ArrayList<>();
+    public UserContacts(){}
     public UserContacts(Mails mail)
     {
        this.mail=mail;
-    }
-    public UserContacts(Users contact){
-        this.contact=contact;
     }
 
 
@@ -63,9 +60,9 @@ public class UserContacts extends Users implements DatabaseOperations {
             while (rs.next())
             {
                UserContacts contact=new UserContacts();
-                contact.setFirstName("first_name");
-                contact.setEmail("contact_email");
-                contact.setLastName("last_name");
+                contact.setFirstName(rs.getString("first_name"));
+                contact.setEmail(rs.getString("contact_email"));
+                contact.setLastName(rs.getString("last_name"));
                 contacts.add(contact);
             }
         } catch (SQLException throwables) {
