@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 public class UserCreatedCategory implements DatabaseOperations{
-    private String categoryName,belongsTo;
+    private String categoryName,loggedInUser;
     String userEmail;
     Connection con= ConnectDB.connect();
     ArrayList<UserCreatedCategory>userCreatedCategory=new ArrayList<>();
@@ -28,16 +28,19 @@ public class UserCreatedCategory implements DatabaseOperations{
         this.categoryName = categoryName;
     }
 
-    public String getBelongsTo() {
-        return belongsTo;
-    }
-
-    public void setBelongsTo(String belongsTo) {
-        this.belongsTo = belongsTo;
-    }
 
     UserCreatedCategory(String userEmail){
         this.userEmail=userEmail;
+    }
+
+    @Override
+    public void setUser(String user) {
+        this.loggedInUser=user;
+    }
+
+    @Override
+    public String getUser() {
+        return loggedInUser;
     }
 
     @Override
@@ -46,7 +49,7 @@ public class UserCreatedCategory implements DatabaseOperations{
         try  {
             PreparedStatement preparedStatement = con.prepareStatement(SQL_ADDCATEGORY);
             preparedStatement.setString(1,getCategoryName());
-            preparedStatement.setString(2,getBelongsTo());
+            preparedStatement.setString(2,getUser());
             preparedStatement.execute();
         } catch (SQLException throwables) {
             throwables.printStackTrace();

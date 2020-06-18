@@ -1,7 +1,7 @@
 package yeamin21.gomail.base.mail;
 
 public class MailCategory implements DatabaseOperations {
-    private String categoryID,categoryName;
+    private String categoryID,categoryName,loggedInUser;
 
     public String getCategoryID() {
         return categoryID;
@@ -17,6 +17,16 @@ public class MailCategory implements DatabaseOperations {
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
+    }
+
+    @Override
+    public void setUser(String user) {
+        this.loggedInUser=user;
+    }
+
+    @Override
+    public String getUser() {
+        return loggedInUser;
     }
 
     @Override

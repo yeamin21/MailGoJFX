@@ -30,4 +30,6 @@ public class ControllerMailbox {
     {
         new SwitchPane("mail\\Inbox.fxml",panelMailboxBody).doSwitch();
     }
+    @FXML
+    void actionArchive(){new SwitchPane("mail\\Archive.fxml",panelMailboxBody).doSwitch();}
 }

@@ -28,6 +28,16 @@ public class UserContacts extends Users implements DatabaseOperations {
 
 
     @Override
+    public void setUser(String user) {
+        this.loggedInUser=user;
+    }
+
+    @Override
+    public String getUser() {
+        return loggedInUser;
+    }
+
+    @Override
     public void Create() {
         String SQL_ADDTOCONTACT="INSERT INTO CONTACTS(USER_EMAIL,CONTACT_EMAIL) VALUES(?,?)";
 

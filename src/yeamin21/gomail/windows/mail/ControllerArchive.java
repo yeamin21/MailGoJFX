@@ -1,26 +1,23 @@
 package yeamin21.gomail.windows.mail;
 
-
-import yeamin21.gomail.base.mail.ArchivedMails;
-import yeamin21.gomail.base.mail.DatabaseOperations;
-import yeamin21.gomail.base.mail.FetchMails;
-import yeamin21.gomail.base.mail.Mails;
-import yeamin21.gomail.base.user.UserContacts;
-import yeamin21.gomail.windows.signings.ControllerLogin;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
+import yeamin21.gomail.base.mail.ArchivedMails;
+import yeamin21.gomail.base.mail.DatabaseOperations;
+import yeamin21.gomail.base.mail.FetchMails;
+import yeamin21.gomail.base.mail.Mails;
+import yeamin21.gomail.windows.signings.ControllerLogin;
 
-import javax.jws.soap.SOAPBinding;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
-public class ControllerInbox implements Initializable {
-
+public class ControllerArchive implements Initializable {
     @FXML
     TextArea mailBody;
     @FXML
@@ -30,27 +27,26 @@ public class ControllerInbox implements Initializable {
     @FXML
     ObservableList<Mails> data= FXCollections.observableArrayList();
     Mails selectedMail;
-    static String  loggedInUser=ControllerLogin.userEmail;
+    static String loggedInUser= ControllerLogin.userEmail;
 
-   @Override
+    @Override
     public void initialize(URL location, ResourceBundle resources) {
-       addMailsToTable();
+        addMailsToTable();
     }
     void addMailsToTable()
     {
-        DatabaseOperations mail=new FetchMails();
-        mail.setUser(loggedInUser);
-        mail.Read();
-        for(Mails aMail: ((FetchMails) mail).mails)
-        {
-            data.add(aMail);
+        ArchivedMails aMail=new ArchivedMails();
+        aMail.setUser(loggedInUser);
+        aMail.Read();
+        for(Mails mail: aMail.archivedMails){
+           data.add(mail);
         }
-
         cSender.setCellValueFactory(new PropertyValueFactory<>("sender"));
         cDate.setCellValueFactory(new PropertyValueFactory<>("date"));
         cSubject.setCellValueFactory(new PropertyValueFactory<>("subject"));
         cBody.setCellValueFactory(new PropertyValueFactory<>("body"));
         aTable.setItems(data);
+
     }
     public void onTableClick() {
         if (aTable.getSelectionModel().getSelectedItem() != null) {
@@ -58,30 +54,15 @@ public class ControllerInbox implements Initializable {
             mailBody.setText("From: "+selectedMail.getSender()+"\n");
             mailBody.appendText("Subject: "+selectedMail.getSubject()+"\n");
             mailBody.appendText("\n"+selectedMail.getBody()+"\n");
-            new FetchMails(selectedMail).Update();
 
         }
     }
     @FXML
     void DeleteSelectedMail()
     {
-        new FetchMails(selectedMail).Delete();
+        new ArchivedMails(selectedMail).Delete();
     }
-    @FXML
-    void AddSenderToContact()
-    {
-        UserContacts userContacts=new UserContacts(selectedMail);
-        userContacts.loggedInUser=this.loggedInUser;
-        userContacts.Create();
-    }
-    @FXML
-    void AddToArchive()
-    {
-        DatabaseOperations archivedMails=new ArchivedMails(selectedMail);
-        archivedMails.setUser(this.loggedInUser);
-        archivedMails.Create();
 
-    }
 
 
 }

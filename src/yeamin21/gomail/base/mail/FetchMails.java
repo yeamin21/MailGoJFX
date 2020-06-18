@@ -22,18 +22,27 @@ import java.util.ArrayList;
 public class FetchMails implements DatabaseOperations {
     Connection con=ConnectDB.connect();
     public ArrayList<Mails>mails=new ArrayList<>();
-    String userEmail;
     Mails mail;
-
-    public FetchMails(String userEmail) {
-
-        this.userEmail=userEmail;
-    }
+    private String loggedInUser;
     public FetchMails(Mails mail)
     {
         this.mail=mail;
     }
 
+    public FetchMails() {
+
+    }
+
+
+    @Override
+    public void setUser(String user) {
+        this.loggedInUser=user;
+    }
+
+    @Override
+    public String getUser() {
+        return loggedInUser;
+    }
 
     @Override
     public void Create() {
@@ -44,7 +53,7 @@ public class FetchMails implements DatabaseOperations {
     public void Read() {
 
         try {
-            String SQL_GETMAILS="SELECT * FROM mail inner join mail_contents on  mail.mail_id=mail_contents.mail_id WHERE RECEIVER_EMAIL= '"+userEmail+"'";
+            String SQL_GETMAILS="SELECT * FROM mail inner join mail_contents on  mail.mail_id=mail_contents.mail_id WHERE RECEIVER_EMAIL= '"+getUser()+"'";
             PreparedStatement statement=con.prepareStatement(SQL_GETMAILS);
             ResultSet resultSet= statement.executeQuery();
             while(resultSet.next())

@@ -6,6 +6,8 @@
 package yeamin21.gomail.base.mail;
 
 
+import java.util.Date;
+
 /**
  *
  * @author yeami
@@ -15,7 +17,7 @@ public class Mails {
    private String receiver;
    private  String subject;
    private String body;
-   private  int date;
+   private Date date;
    private  int code;
    private MailCategory category;
 
@@ -62,11 +64,11 @@ public class Mails {
         this.body = body;
     }
 
-    public int getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(int date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

@@ -19,8 +19,18 @@ import java.sql.Statement;
 public class SendMail extends Mails implements DatabaseOperations {
    private String receiverEmail,senderEmail;
     Connection con=ConnectDB.connect();
+    private String loggedInUser;
 
 
+    @Override
+    public void setUser(String user) {
+        this.loggedInUser=user;
+    }
+
+    @Override
+    public String getUser() {
+        return loggedInUser;
+    }
 
     @Override
     public void Create() {

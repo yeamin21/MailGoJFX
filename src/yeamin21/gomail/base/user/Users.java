@@ -11,8 +11,13 @@ package yeamin21.gomail.base.user;
  * @author yeami
  */
 public class Users {
+    protected String loggedInUser;
     private String firstName;
     private String lastName;
+    private String email;
+    private String phoneNo;
+    private String address;
+    protected String password;
 
     public String getFirstName() {
         return firstName;
@@ -29,14 +34,6 @@ public class Users {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
-    private String email;
-    private String phoneNo;
-    private String address;
-    protected String password;
-
-
-
 
     public String getEmail() {
         return email;

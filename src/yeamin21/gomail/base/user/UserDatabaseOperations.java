@@ -11,6 +11,16 @@ import java.sql.SQLException;
 public class UserDatabaseOperations extends Users implements DatabaseOperations {
     Connection connection= ConnectDB.connect();
     @Override
+    public void setUser(String user) {
+        this.loggedInUser=user;
+    }
+
+    @Override
+    public String getUser() {
+        return loggedInUser;
+    }
+
+    @Override
     public void Create() {
         String INSERTION="INSERT INTO `USER`(`email`,`first_name`,`last_name`,`password`) values(?,?,?,?)";
         try {

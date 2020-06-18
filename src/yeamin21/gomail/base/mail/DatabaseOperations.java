@@ -5,11 +5,16 @@
  */
 package yeamin21.gomail.base.mail;
 
+import com.sun.org.apache.bcel.internal.generic.ARETURN;
+import yeamin21.gomail.windows.mail.ControllerInbox;
+
 /**
  *
  * @author yeami
  */
 public interface DatabaseOperations {
+    public void setUser(String user);
+    public String getUser();
     public void Create();
     public void Read();
     public void Update();
