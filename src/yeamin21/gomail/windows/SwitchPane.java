@@ -8,10 +8,15 @@ import javafx.scene.layout.Pane;
 public class SwitchPane {
     public String panelToSwitch;
     public Pane switchOnPanel;
-
+    private FXMLLoader fxmlLoader;
     public SwitchPane(String panelToSwitch, Pane switchOnPanel) {
         this.switchOnPanel = switchOnPanel;
         this.panelToSwitch =panelToSwitch;
+        fxmlLoader=new FXMLLoader(getClass().getResource(panelToSwitch));
+    }
+    public FXMLLoader getFxmlLoader()
+    {
+       return this.fxmlLoader;
     }
 
     @FXML
@@ -19,7 +24,7 @@ public class SwitchPane {
     {
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getResource(this.panelToSwitch));
+            root = getFxmlLoader().load();
             this.switchOnPanel.getChildren().setAll(root);
         } catch (Exception e) {
             System.out.println(e);

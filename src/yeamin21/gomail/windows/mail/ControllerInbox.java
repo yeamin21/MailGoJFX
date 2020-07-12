@@ -1,11 +1,15 @@
 package yeamin21.gomail.windows.mail;
 
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.layout.AnchorPane;
 import yeamin21.gomail.base.mail.ArchivedMails;
 import yeamin21.gomail.base.mail.DatabaseOperations;
 import yeamin21.gomail.base.mail.FetchMails;
 import yeamin21.gomail.base.mail.Mails;
 import yeamin21.gomail.base.user.UserContacts;
+import yeamin21.gomail.windows.SwitchPane;
 import yeamin21.gomail.windows.signings.ControllerLogin;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,6 +24,8 @@ import java.util.ResourceBundle;
 
 public class ControllerInbox implements Initializable {
 
+    @FXML
+    AnchorPane anchorPaneInbox;
     @FXML
     TextArea mailBody;
     @FXML
@@ -80,6 +86,15 @@ public class ControllerInbox implements Initializable {
         archivedMails.setUser(this.loggedInUser);
         archivedMails.Create();
 
+    }
+
+    @FXML
+    void replyToMail(){
+
+       SwitchPane switchPane=new SwitchPane("mail\\ComposePanel.fxml",anchorPaneInbox);
+       switchPane.doSwitch();
+       ControllerComposePanel controllerComposePanel=switchPane.getFxmlLoader().getController();
+       controllerComposePanel.setMail(selectedMail);
     }
 
 
