@@ -15,9 +15,10 @@
         </columns>
       </TableView>
       <Button layoutX="634.0" layoutY="549.0" mnemonicParsing="false" onMouseClicked="#DeleteSelectedMail" text="Delete" />
-      <Button layoutX="350.0" layoutY="549.0" mnemonicParsing="false" onMouseClicked="#AddSenderToContact" text="Add Sender To Contact" />
+      <Button layoutX="362.0" layoutY="549.0" mnemonicParsing="false" onMouseClicked="#AddSenderToContact" text="Add Sender To Contact" />
       <Button layoutX="509.0" layoutY="549.0" mnemonicParsing="false" onMouseClicked="#AddToArchive" text="Archive" />
       <Button layoutX="574.0" layoutY="549.0" mnemonicParsing="false" onAction="#replyToMail" text="Reply" />
+      <Button layoutX="238.0" layoutY="549.0" mnemonicParsing="false" text="Mark As Important" />
 
    </children>
 </AnchorPane>

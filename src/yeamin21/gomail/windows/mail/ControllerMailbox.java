@@ -1,5 +1,9 @@
 package yeamin21.gomail.windows.mail;
 
+import javafx.scene.Node;
+import javafx.scene.control.ListView;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import yeamin21.gomail.windows.SwitchPane;
@@ -17,25 +21,19 @@ public class ControllerMailbox {
     @FXML
     Label labelUser;
     @FXML
-    VBox vbox;
-
-
+    ListView scrollPane;
 
     @FXML
     public void initialize(){
         labelUser.setText(ControllerLogin.userEmail);
         new SwitchPane("mail\\Inbox.fxml",panelMailboxBody).doSwitch();
 
-
-        for(int i=0;i<5;i++)
+        for (int i=0;i<15;i++)
         {
-
-            Button l=new Button("ABBIIIFS");
-            AnchorPane anchorPane=new AnchorPane();
-            anchorPane.getChildren().addAll(l);
-            vbox.getChildren().add(anchorPane);
-            System.out.println(vbox.getChildren());
+            scrollPane.getItems().add(i);
         }
+        scrollPane.setOnMouseClicked(event ->  System.out.println(scrollPane.getSelectionModel().getSelectedIndex()));
+
     }
 
     @FXML
@@ -51,5 +49,7 @@ public class ControllerMailbox {
     void actionArchive(){new SwitchPane("mail\\Archive.fxml",panelMailboxBody).doSwitch();}
     @FXML
     void actionContact(){new SwitchPane("user\\Contact.fxml",panelMailboxBody).doSwitch();}
+
+
 }
 
