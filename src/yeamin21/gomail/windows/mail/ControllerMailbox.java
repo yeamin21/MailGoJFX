@@ -32,8 +32,8 @@ public class ControllerMailbox {
         {
             scrollPane.getItems().add(i);
         }
-        scrollPane.setOnMouseClicked(event ->  System.out.println(scrollPane.getSelectionModel().getSelectedIndex()));
-
+        scrollPane.setOnMouseClicked(event ->
+        System.out.println(scrollPane.getSelectionModel().getSelectedIndex()));
     }
 
     @FXML
