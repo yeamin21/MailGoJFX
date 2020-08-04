@@ -53,7 +53,11 @@ public class FetchMails implements DatabaseOperations {
     public void Read() {
 
         try {
-            String SQL_GETMAILS="SELECT * FROM mail inner join mail_contents on  mail.mail_id=mail_contents.mail_id WHERE RECEIVER_EMAIL= '"+getUser()+"'";
+            String SQL_GETMAILS="SELECT mail.mail_id, mail.sender_email,mail.receiver_email, mail.sending_date_time,mail_contents.subject, mail_contents.body," +
+                    " category.category_id, category_name FROM mail\n" +
+                    "inner join mail_contents on mail.mail_id=mail_contents.mail_id\n" +
+                    "left join mail_category on mail.mail_id=mail_category.mail_id\n" +
+                    "left join category on category.category_id=mail_category.category_id where receiver_email='"+getUser()+"'";
             PreparedStatement statement=con.prepareStatement(SQL_GETMAILS);
             ResultSet resultSet= statement.executeQuery();
             while(resultSet.next())

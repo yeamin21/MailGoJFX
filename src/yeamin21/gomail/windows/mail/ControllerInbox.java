@@ -4,10 +4,7 @@ package yeamin21.gomail.windows.mail;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
-import yeamin21.gomail.base.mail.ArchivedMails;
-import yeamin21.gomail.base.mail.DatabaseOperations;
-import yeamin21.gomail.base.mail.FetchMails;
-import yeamin21.gomail.base.mail.Mails;
+import yeamin21.gomail.base.mail.*;
 import yeamin21.gomail.base.user.UserContacts;
 import yeamin21.gomail.windows.SwitchPane;
 import yeamin21.gomail.windows.signings.ControllerLogin;
@@ -34,12 +31,23 @@ public class ControllerInbox implements Initializable {
     TableView aTable;
     @FXML
     ObservableList<Mails> data= FXCollections.observableArrayList();
+    @FXML
+    ComboBox comboCategory;
     Mails selectedMail;
     static String  loggedInUser=ControllerLogin.userEmail;
 
    @Override
     public void initialize(URL location, ResourceBundle resources) {
+
        addMailsToTable();
+
+       MailCategory readMailCategory=new MailCategory();
+       readMailCategory.setUser(ControllerLogin.userEmail);
+       readMailCategory.Read();
+      comboCategory.setPromptText("Add to Category");
+       for (MailCategory mailcategory:readMailCategory.mailCategories) {
+           comboCategory.getItems().add(mailcategory.getCategoryName());
+       }
     }
     void addMailsToTable()
     {
