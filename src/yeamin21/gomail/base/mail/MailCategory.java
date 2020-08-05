@@ -82,4 +82,9 @@ public class MailCategory implements DatabaseOperations {
     public void Delete() {
 
     }
+    @Override
+    public String toString()
+    {
+        return this.getCategoryName();
+    }
 }

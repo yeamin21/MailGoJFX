@@ -3,6 +3,7 @@ package yeamin21.gomail.windows.mail;
 import javafx.fxml.Initializable;
 import yeamin21.gomail.base.mail.Mails;
 import yeamin21.gomail.base.mail.SendMail;
+import yeamin21.gomail.base.user.Users;
 import yeamin21.gomail.windows.signings.ControllerLogin;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -33,11 +34,19 @@ public class ControllerComposePanel implements Initializable {
         sendMail.setBody(textareaMailBody.getText().toString().trim());
         sendMail.Create();
     }
+    //TODO optimize this segmnent
+    //need to make changes in base code for mail receiver
     @FXML
-    public void setMail(Mails x)
+    public void setMail(Mails x) //from controllerMailbox
     {
         textfieldSubject.setText("Re: " +x.getSubject());
-        textfieldSendTo.setText(x.getSender());
+        textfieldSendTo.setText(x.getReceiver());
+
+    }
+    @FXML
+    public void setReceiver(Users x) //from controllerContact
+    {
+        textfieldSendTo.setText(x.getEmail());
     }
 
 

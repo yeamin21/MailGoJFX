@@ -4,14 +4,19 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
 import yeamin21.gomail.base.mail.FetchMails;
+import yeamin21.gomail.base.mail.MailCategory;
 import yeamin21.gomail.base.mail.Mails;
 import yeamin21.gomail.base.user.UserContacts;
 import yeamin21.gomail.base.user.Users;
+import yeamin21.gomail.windows.SwitchPane;
+import yeamin21.gomail.windows.mail.ControllerComposePanel;
 import yeamin21.gomail.windows.mail.ControllerInbox;
 import yeamin21.gomail.windows.signings.ControllerLogin;
 
@@ -21,11 +26,15 @@ import java.util.ResourceBundle;
 public class ControllerContact implements Initializable {
 
     @FXML
+    Pane paneContact;
+    @FXML
     TableColumn cEmail,cFName,cLName,cPhoneNo;
     @FXML
     TableView aTable;
     @FXML
     ObservableList<Users> data= FXCollections.observableArrayList();
+    @FXML
+    Button btnSendMail;
     Users selectedUser;
     static String  loggedInUser=ControllerLogin.userEmail;
 
@@ -50,5 +59,14 @@ public class ControllerContact implements Initializable {
         }
     }
 
+@FXML
+    void sendMailToContact()
+{
+    Users user=(Users) aTable.getSelectionModel().getSelectedItem();
+    SwitchPane switchPane=new SwitchPane("resources\\ComposePanel.fxml",paneContact);
+    switchPane.doSwitch();
+    ControllerComposePanel controllerComposePanel=switchPane.getFxmlLoader().getController();
+    controllerComposePanel.setReceiver(user);
+}
 
     }

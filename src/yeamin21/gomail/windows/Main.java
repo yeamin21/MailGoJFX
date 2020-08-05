@@ -10,7 +10,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("signings/Login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("resources/Login.fxml"));
         primaryStage.setTitle("MailGO by Yeamin");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

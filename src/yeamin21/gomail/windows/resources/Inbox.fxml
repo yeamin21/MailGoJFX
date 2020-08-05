@@ -20,6 +20,7 @@
       <Button layoutX="574.0" layoutY="549.0" mnemonicParsing="false" onAction="#replyToMail" text="Reply" />
       <Button layoutX="238.0" layoutY="549.0" mnemonicParsing="false" text="Mark As Important" />
       <ComboBox fx:id="comboCategory" layoutX="21.0" layoutY="549.0" prefWidth="150.0" />
+      <Button fx:id="btnAddToCategory" layoutX="177.0" layoutY="549.0" mnemonicParsing="false" onAction="#getCat" prefHeight="25.0" prefWidth="46.0" text="Save" />
 
    </children>
 </AnchorPane>

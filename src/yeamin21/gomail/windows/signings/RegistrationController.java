@@ -27,7 +27,7 @@ public class RegistrationController {
        us.setPassword(passPassword.getText().toString().trim());
        us.Create();
 
-       new SwitchPane("signings\\Login.fxml",paneSignUp).doSwitch();
+       new SwitchPane("resources\\Login.fxml",paneSignUp).doSwitch();
 
     }
 

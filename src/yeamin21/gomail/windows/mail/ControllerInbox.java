@@ -1,8 +1,11 @@
 package yeamin21.gomail.windows.mail;
 
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import yeamin21.gomail.base.mail.*;
 import yeamin21.gomail.base.user.UserContacts;
@@ -32,7 +35,11 @@ public class ControllerInbox implements Initializable {
     @FXML
     ObservableList<Mails> data= FXCollections.observableArrayList();
     @FXML
+    ObservableList<MailCategory>categories=FXCollections.observableArrayList();
+    @FXML
     ComboBox comboCategory;
+    @FXML
+    Button btnAddToCategory;
     Mails selectedMail;
     static String  loggedInUser=ControllerLogin.userEmail;
 
@@ -44,10 +51,39 @@ public class ControllerInbox implements Initializable {
        MailCategory readMailCategory=new MailCategory();
        readMailCategory.setUser(ControllerLogin.userEmail);
        readMailCategory.Read();
-      comboCategory.setPromptText("Add to Category");
+        comboCategory.setPromptText("Add to Category");
        for (MailCategory mailcategory:readMailCategory.mailCategories) {
-           comboCategory.getItems().add(mailcategory.getCategoryName());
+           categories.add(mailcategory);
        }
+       comboCategory.setItems(categories);
+
+    }
+
+    @FXML
+    public void search(MailCategory mailCategory)
+    {
+        data.clear();
+        DatabaseOperations mail=new FetchMails();
+        mail.setUser(loggedInUser);
+        ((FetchMails)mail).Read(mailCategory);
+        for(Mails aMail: ((FetchMails) mail).mails)
+        {
+            data.add(aMail);
+        }
+
+        cSender.setCellValueFactory(new PropertyValueFactory<>("sender"));
+        cDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        cSubject.setCellValueFactory(new PropertyValueFactory<>("subject"));
+        cBody.setCellValueFactory(new PropertyValueFactory<>("body"));
+        aTable.setItems(data);
+
+    }
+    @FXML
+    void getCat()
+    {
+                MailCategory ca= (MailCategory) comboCategory.getSelectionModel().getSelectedItem();
+                DatabaseOperations categorizeMail=new FetchMails();
+                ((FetchMails)categorizeMail).addCategory(selectedMail,ca);
     }
     void addMailsToTable()
     {
@@ -99,11 +135,13 @@ public class ControllerInbox implements Initializable {
     @FXML
     void replyToMail(){
 
-       SwitchPane switchPane=new SwitchPane("mail\\ComposePanel.fxml",anchorPaneInbox);
+       SwitchPane switchPane=new SwitchPane("resources\\ComposePanel.fxml",anchorPaneInbox);
        switchPane.doSwitch();
        ControllerComposePanel controllerComposePanel=switchPane.getFxmlLoader().getController();
        controllerComposePanel.setMail(selectedMail);
     }
+
+
 
 
 }

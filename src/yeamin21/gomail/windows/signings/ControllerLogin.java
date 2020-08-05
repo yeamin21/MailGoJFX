@@ -39,13 +39,13 @@ public class ControllerLogin implements Initializable {
         us.setPassword(passwordfieldPassword.getText().toString().trim());
         us.userLogin();
         this.userEmail=us.getEmail();
-        new SwitchPane("mail\\MailBox.fxml",panelLoginRegistration).doSwitch();
+        new SwitchPane("resources\\MailBox.fxml",panelLoginRegistration).doSwitch();
     }
 
     @FXML
     void toSignUpPanel()
     {
-      new SwitchPane("signings\\Registration.fxml",panelLoginRegistration).doSwitch();
+      new SwitchPane("resources\\Registration.fxml",panelLoginRegistration).doSwitch();
     }
 
     @Override
