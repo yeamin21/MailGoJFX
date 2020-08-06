@@ -23,6 +23,13 @@ public class UserContacts extends Users implements DatabaseOperations {
        this.mail=mail;
     }
 
+    public Users getContact() {
+        return contact;
+    }
+
+    public void setContact(Users contact) {
+        this.contact = contact;
+    }
 
     @Override
     public void setUser(String user) {
@@ -33,6 +40,7 @@ public class UserContacts extends Users implements DatabaseOperations {
     public String getUser() {
         return loggedInUser;
     }
+
 
     @Override
     public void Create() {

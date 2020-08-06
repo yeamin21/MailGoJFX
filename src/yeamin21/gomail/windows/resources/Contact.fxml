@@ -5,7 +5,7 @@
 
 <AnchorPane fx:id="paneContact" prefHeight="612.0" prefWidth="699" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="yeamin21.gomail.windows.user.ControllerContact">
    <children>
-      <TableView fx:id="aTable" layoutX="11.0" layoutY="36.0" onMouseClicked="#onTableClick" prefHeight="499.0" prefWidth="680.0">
+      <TableView fx:id="aTable" layoutX="11.0" layoutY="36.0" prefHeight="499.0" prefWidth="680.0">
          <columns>
             <TableColumn fx:id="cEmail" prefWidth="143.0" text="Contact Email" />
             <TableColumn fx:id="cFName" prefWidth="122.0" text="First Name" />
@@ -13,7 +13,7 @@
             <TableColumn fx:id="cPhoneNo" minWidth="0.0" prefWidth="145.0" text="Phone No" />
          </columns>
       </TableView>
-      <Button layoutX="634.0" layoutY="549.0" mnemonicParsing="false" text="Delete" />
+      <Button layoutX="634.0" layoutY="549.0" mnemonicParsing="false" onAction="#onDeleteAction" text="Delete" />
       <Button fx:id="btnSendMail" layoutX="548.0" layoutY="549.0" mnemonicParsing="false" onAction="#sendMailToContact" text="Send Mail" />
    </children>
 </AnchorPane>
