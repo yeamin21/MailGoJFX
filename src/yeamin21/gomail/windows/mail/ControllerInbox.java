@@ -47,15 +47,9 @@ public class ControllerInbox implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
        addMailsToTable();
+       addCategoriesToCombobox();
 
-       MailCategory readMailCategory=new MailCategory();
-       readMailCategory.setUser(ControllerLogin.userEmail);
-       readMailCategory.Read();
-        comboCategory.setPromptText("Add to Category");
-       for (MailCategory mailcategory:readMailCategory.mailCategories) {
-           categories.add(mailcategory);
-       }
-       comboCategory.setItems(categories);
+
 
     }
 
@@ -63,10 +57,10 @@ public class ControllerInbox implements Initializable {
     public void search(MailCategory mailCategory)
     {
         data.clear();
-        DatabaseOperations mail=new FetchMails();
+        FetchMails mail=new FetchMails();
         mail.setUser(loggedInUser);
-        ((FetchMails)mail).Read(mailCategory);
-        for(Mails aMail: ((FetchMails) mail).mails)
+        mail.Read(mailCategory);
+        for(Mails aMail: mail.mails)
         {
             data.add(aMail);
         }
@@ -84,6 +78,17 @@ public class ControllerInbox implements Initializable {
                 MailCategory ca= (MailCategory) comboCategory.getSelectionModel().getSelectedItem();
                 DatabaseOperations categorizeMail=new FetchMails();
                 ((FetchMails)categorizeMail).addCategory(selectedMail,ca);
+    }
+    void addCategoriesToCombobox()
+    {
+        MailCategory readMailCategory=new MailCategory();
+        readMailCategory.setUser(ControllerLogin.userEmail);
+        readMailCategory.Read();
+        comboCategory.setPromptText("Add to Category");
+        for (MailCategory mailcategory:readMailCategory.mailCategories) {
+            categories.add(mailcategory);
+        }
+        comboCategory.setItems(categories);
     }
     void addMailsToTable()
     {
@@ -120,14 +125,14 @@ public class ControllerInbox implements Initializable {
     void AddSenderToContact()
     {
         UserContacts userContacts=new UserContacts(selectedMail);
-        userContacts.loggedInUser=this.loggedInUser;
+        userContacts.loggedInUser=ControllerLogin.userEmail;
         userContacts.Create();
     }
     @FXML
     void AddToArchive()
     {
         DatabaseOperations archivedMails=new ArchivedMails(selectedMail);
-        archivedMails.setUser(this.loggedInUser);
+        archivedMails.setUser(ControllerLogin.userEmail);
         archivedMails.Create();
 
     }
