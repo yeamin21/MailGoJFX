@@ -92,10 +92,10 @@ public class ControllerInbox implements Initializable {
     }
     void addMailsToTable()
     {
-        DatabaseOperations mail=new FetchMails();
+        FetchMails mail=new FetchMails();
         mail.setUser(loggedInUser);
         mail.Read();
-        for(Mails aMail: ((FetchMails) mail).mails)
+        for(Mails aMail: mail.mails)
         {
             data.add(aMail);
         }
