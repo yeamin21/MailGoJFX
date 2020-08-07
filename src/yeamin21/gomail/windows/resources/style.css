@@ -1,0 +1,7 @@
+.btn {
+    -fx-pref-width: 224;
+    -fx-pref-height: 50;
+    -fx-background-image: url(inbox.png);
+    -fx-background-size: 32 32;
+
+}

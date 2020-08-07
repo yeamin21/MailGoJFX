@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import yeamin21.gomail.base.mail.DatabaseOperations;
 import yeamin21.gomail.base.mail.MailCategory;
 import yeamin21.gomail.windows.SwitchPane;
@@ -64,12 +65,16 @@ public class ControllerMailbox {
     }
     @FXML
     void AddNewProjectPanel() {
-        new SwitchPane("resources\\ComposePanel.fxml",panelMailboxBody).doSwitch();
+       SwitchPane switchPane= new SwitchPane("resources\\ComposePanel.fxml",panelMailboxBody);
+       switchPane.doSwitch();
+        ControllerComposePanel controllerComposePanel=switchPane.getFxmlLoader().getController();
+
     }
     @FXML
     void actionInbox()
     {
-        new SwitchPane("resources\\Inbox.fxml",panelMailboxBody).doSwitch();
+        SwitchPane switchPane=new SwitchPane("resources\\Inbox.fxml",panelMailboxBody);
+        switchPane.doSwitch();
     }
     @FXML
     void actionArchive(){new SwitchPane("resources\\Archive.fxml",panelMailboxBody).doSwitch();}
