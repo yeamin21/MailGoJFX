@@ -1,0 +1,41 @@
+.MailBoxPaneButton {
+    -fx-pref-width: 224;
+    -fx-pref-height: 50;
+    -fx-background-radius: 0,0,0,0;
+    -fx-text-fill:white;
+    -fx-font-size: 16;
+    -fx-background-color: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
+
+}
+.MailBoxPaneButton:hover{
+    -fx-background-color: linear-gradient(to right, #ff5f77, #f15e64, #e14e53, #e2373f);
+}
+#buttonInbox.MailBoxPaneButton{
+    -fx-background-image: url(inbox.png);
+    -fx-background-position:50;
+    -fx-background-repeat: no-repeat;
+}
+#buttonComposeMail.MailBoxPaneButton{
+    -fx-background-image: url(compose.png);
+    -fx-background-position:50;
+    -fx-background-repeat: no-repeat;
+}
+#buttonContacts.MailBoxPaneButton{
+    -fx-background-image: url(contact.png);
+    -fx-background-position:50;
+    -fx-background-repeat: no-repeat;
+}
+#buttonArchive.MailBoxPaneButton
+{
+    -fx-background-image: url(archive.png);
+    -fx-background-position:50;
+    -fx-background-repeat: no-repeat;
+}
+#buttonDraft.MailBoxPaneButton
+{
+    -fx-background-image: url(draft.png);
+    -fx-background-position:50;
+    -fx-background-repeat: no-repeat;
+
+}
+

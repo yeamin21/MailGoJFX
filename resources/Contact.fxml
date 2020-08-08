@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
+<?import javafx.scene.layout.AnchorPane?>
 <AnchorPane fx:id="paneContact" prefHeight="612.0" prefWidth="699" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="yeamin21.gomail.windows.user.ControllerContact">
       <TableView fx:id="aTable" layoutX="11.0" layoutY="36.0" prefHeight="499.0" prefWidth="680.0">
          <columns>

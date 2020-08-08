@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class DraftMails extends Mails implements DatabaseOperations{
-    Connection connection= ConnectDB.connect();
+    final Connection connection= ConnectDB.connect();
 
     @Override
     public void setUser(String user) {

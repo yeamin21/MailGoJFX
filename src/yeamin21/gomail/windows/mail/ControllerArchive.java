@@ -9,8 +9,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
 import yeamin21.gomail.base.mail.ArchivedMails;
-import yeamin21.gomail.base.mail.DatabaseOperations;
-import yeamin21.gomail.base.mail.FetchMails;
 import yeamin21.gomail.base.mail.Mails;
 import yeamin21.gomail.windows.signings.ControllerLogin;
 

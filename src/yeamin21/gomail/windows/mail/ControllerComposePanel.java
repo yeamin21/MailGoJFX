@@ -1,7 +1,11 @@
 package yeamin21.gomail.windows.mail;
 
 import javafx.application.Platform;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import yeamin21.gomail.base.mail.DatabaseOperations;
@@ -10,12 +14,7 @@ import yeamin21.gomail.base.mail.Mails;
 import yeamin21.gomail.base.mail.SendMail;
 import yeamin21.gomail.base.user.Users;
 import yeamin21.gomail.windows.signings.ControllerLogin;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 
-import javax.sound.midi.Soundbank;
 import java.net.URL;
 import java.util.ResourceBundle;
 

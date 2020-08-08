@@ -3,7 +3,6 @@ package yeamin21.gomail.base.user;
 import yeamin21.gomail.base.mail.DatabaseOperations;
 import yeamin21.gomail.base.mail.Mails;
 import yeamin21.gomail.windows.ConnectDB;
-import yeamin21.gomail.windows.mail.ControllerComposePanel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

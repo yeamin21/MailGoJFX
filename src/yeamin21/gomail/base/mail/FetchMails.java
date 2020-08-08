@@ -7,8 +7,6 @@ package yeamin21.gomail.base.mail;
 
 import yeamin21.gomail.windows.ConnectDB;
 
-import javax.xml.crypto.Data;
-import java.security.SecureRandom;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

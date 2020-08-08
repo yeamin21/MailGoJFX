@@ -4,9 +4,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
-
-import java.util.Objects;
 
 public class SwitchPane {
     public String panelToSwitch;
@@ -16,7 +13,7 @@ public class SwitchPane {
     public SwitchPane(String panelToSwitch, Pane switchOnPanel) {
         this.switchOnPanel = switchOnPanel;
         this.panelToSwitch =panelToSwitch;
-        fxmlLoader=new FXMLLoader(getClass().getResource(panelToSwitch));
+        fxmlLoader=new FXMLLoader(getClass().getClassLoader().getResource(panelToSwitch));
     }
     public FXMLLoader getFxmlLoader()
     {

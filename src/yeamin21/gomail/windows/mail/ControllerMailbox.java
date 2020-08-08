@@ -8,12 +8,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 import yeamin21.gomail.base.mail.DatabaseOperations;
 import yeamin21.gomail.base.mail.MailCategory;
 import yeamin21.gomail.windows.SwitchPane;
 import yeamin21.gomail.windows.signings.ControllerLogin;
 
+@SuppressWarnings("unchecked")
 public class ControllerMailbox {
     @FXML
     Pane panelMailboxBody;
@@ -30,7 +30,7 @@ public class ControllerMailbox {
     @FXML
     public void initialize(){
         labelUser.setText(ControllerLogin.userEmail);
-        new SwitchPane("resources\\Inbox.fxml",panelMailboxBody).doSwitch();
+        new SwitchPane("Inbox.fxml",panelMailboxBody).doSwitch();
         MailCategory readMailCategory=new MailCategory();
         readMailCategory.setUser(ControllerLogin.userEmail);
         readMailCategory.Read();
@@ -47,7 +47,7 @@ public class ControllerMailbox {
     void getCategorizedMails()
     {
         MailCategory mailCategory=(MailCategory)listCategories.getSelectionModel().getSelectedItem();
-        SwitchPane switchPane=new SwitchPane("resources\\Inbox.fxml",panelMailboxBody);
+        SwitchPane switchPane=new SwitchPane("Inbox.fxml",panelMailboxBody);
         switchPane.doSwitch();
         ControllerInbox controllerInbox=switchPane.getFxmlLoader().getController();
         controllerInbox.search(mailCategory);
@@ -65,7 +65,7 @@ public class ControllerMailbox {
     }
     @FXML
     void AddNewProjectPanel() {
-       SwitchPane switchPane= new SwitchPane("resources\\ComposePanel.fxml",panelMailboxBody);
+       SwitchPane switchPane= new SwitchPane("ComposePanel.fxml",panelMailboxBody);
        switchPane.doSwitch();
         ControllerComposePanel controllerComposePanel=switchPane.getFxmlLoader().getController();
 
@@ -73,13 +73,13 @@ public class ControllerMailbox {
     @FXML
     void actionInbox()
     {
-        SwitchPane switchPane=new SwitchPane("resources\\Inbox.fxml",panelMailboxBody);
+        SwitchPane switchPane=new SwitchPane("Inbox.fxml",panelMailboxBody);
         switchPane.doSwitch();
     }
     @FXML
-    void actionArchive(){new SwitchPane("resources\\Archive.fxml",panelMailboxBody).doSwitch();}
+    void actionArchive(){new SwitchPane("Archive.fxml",panelMailboxBody).doSwitch();}
     @FXML
-    void actionContact(){new SwitchPane("resources\\Contact.fxml",panelMailboxBody).doSwitch();}
+    void actionContact(){new SwitchPane("Contact.fxml",panelMailboxBody).doSwitch();}
 
 
 }

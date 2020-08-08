@@ -10,10 +10,10 @@ package yeamin21.gomail.base.mail;
  * @author yeami
  */
 public interface DatabaseOperations {
-    public void setUser(String user);
-    public String getUser();
-    public void Create();
-    public void Read();
-    public void Update();
-    public void Delete();
+    void setUser(String user);
+    String getUser();
+    void Create();
+    void Read();
+    void Update();
+    void Delete();
 }

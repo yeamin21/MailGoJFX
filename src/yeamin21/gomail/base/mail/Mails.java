@@ -6,8 +6,6 @@
 package yeamin21.gomail.base.mail;
 
 
-import yeamin21.gomail.base.user.Users;
-
 import java.util.Date;
 
 /**

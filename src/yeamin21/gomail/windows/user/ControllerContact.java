@@ -5,23 +5,17 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import yeamin21.gomail.base.mail.DatabaseOperations;
-import yeamin21.gomail.base.mail.FetchMails;
-import yeamin21.gomail.base.mail.MailCategory;
-import yeamin21.gomail.base.mail.Mails;
 import yeamin21.gomail.base.user.UserContacts;
 import yeamin21.gomail.base.user.Users;
 import yeamin21.gomail.windows.SwitchPane;
 import yeamin21.gomail.windows.mail.ControllerComposePanel;
-import yeamin21.gomail.windows.mail.ControllerInbox;
 import yeamin21.gomail.windows.signings.ControllerLogin;
 
-import javax.jws.soap.SOAPBinding;
 import java.net.URL;
 import java.util.ResourceBundle;
 
