@@ -28,21 +28,19 @@ public class ControllerContact implements Initializable {
     @FXML
     TableView aTable;
     @FXML
+    final
     ObservableList<Users> data= FXCollections.observableArrayList();
     @FXML
     Button btnSendMail;
     Users selectedUser;
-    static String  loggedInUser=ControllerLogin.userEmail;
+    static final String  loggedInUser=ControllerLogin.userEmail;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         UserContacts userContacts=new UserContacts();
         userContacts.setUser(ControllerLogin.userEmail);
         userContacts.Read();
-        for(Users user:userContacts.contacts )
-        {
-            data.add(user);
-        }
+        data.addAll(userContacts.contacts);
         cEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         cFName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         cLName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
@@ -67,8 +65,8 @@ public class ControllerContact implements Initializable {
 @FXML
     void onDeleteAction()
 {
-    DatabaseOperations userContacts=new UserContacts();
-    ((UserContacts)userContacts).setContact(selectedUser);
+    UserContacts userContacts=new UserContacts();
+    userContacts.setContact(selectedUser);
     userContacts.setUser(loggedInUser);
     userContacts.Delete();
 }

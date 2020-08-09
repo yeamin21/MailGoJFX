@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 
 public class ControllerLogin implements Initializable {
 
-    UserDatabaseOperations us=new UserDatabaseOperations();
+    final UserDatabaseOperations us=new UserDatabaseOperations();
     public static String userEmail;
     @FXML
     Button buttonLogin;
@@ -35,8 +35,8 @@ public class ControllerLogin implements Initializable {
     @FXML
     void Login()
     {
-        us.setEmail(textfieldEmail.getText().toString().trim());
-        us.setPassword(passwordfieldPassword.getText().toString().trim());
+        us.setEmail(textfieldEmail.getText().trim());
+        us.setPassword(passwordfieldPassword.getText().trim());
         us.userLogin();
         userEmail=us.getEmail();
         new SwitchPane("MailBox.fxml",panelLoginRegistration).doSwitch();

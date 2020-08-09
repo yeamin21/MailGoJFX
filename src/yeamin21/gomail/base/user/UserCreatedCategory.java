@@ -13,9 +13,9 @@ public class UserCreatedCategory implements DatabaseOperations {
     private int categoryID;
     private String categoryName;
     private String cateGoryBelongsTo;
-    ArrayList<UserCreatedCategory>userCreatedCategoryArrayListl=new ArrayList<>();
+    final ArrayList<UserCreatedCategory>userCreatedCategoryArrayListl=new ArrayList<>();
 
-    Connection con=ConnectDB.connect();
+    final Connection con=ConnectDB.connect();
     public int getCategoryID() {
         return categoryID;
     }

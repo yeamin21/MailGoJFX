@@ -7,44 +7,44 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.Font?>
-<AnchorPane fx:id="panelLoginRegistration" prefHeight="612" prefWidth="923" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="yeamin21.gomail.windows.signings.ControllerLogin">
-   <children>
-      <Pane fx:id="panelLogin" prefHeight="612.0" prefWidth="931.0">
-         <children>
-            <Pane prefHeight="612.0" prefWidth="398.0" style="-fx-background-color: #34495e;">
-               <children>
-                  <ImageView fitHeight="182.0" fitWidth="194.0" layoutX="95.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@mail.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="68.0" layoutY="343.0" prefHeight="65.0" prefWidth="262.0" text="Paper Mail">
-                     <textFill>
-                        <LinearGradient endX="0.9523809523809523" endY="0.3047619047619048" startY="0.06666666666666665">
-                           <stops>
-                              <Stop>
-                                 <color>
-                                    <Color red="0.44834306836128235" green="0.8421052694320679" blue="0.8355425596237183" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="1.0">
-                                 <color>
-                                    <Color red="0.9907407164573669" green="1.0" blue="0.999691367149353" />
-                                 </color>
-                              </Stop>
-                           </stops>
-                        </LinearGradient>
-                     </textFill>
-                     <font>
-                        <Font size="44.0" />
-                     </font>
-                  </Label>
-               </children></Pane>
-            <Button fx:id="buttonLogin" layoutX="635.0" layoutY="359.0" mnemonicParsing="false" onMouseClicked="#Login" prefHeight="35.0" prefWidth="111.0" text="Login" />
-            <PasswordField fx:id="passwordfieldPassword" layoutX="558.0" layoutY="289.0" prefHeight="35.0" prefWidth="252.0" />
-            <TextField fx:id="textfieldEmail" layoutX="558.0" layoutY="219.0" prefHeight="35.0" prefWidth="252.0" />
-            <Label fx:id="labelCreateAccount" layoutX="606.0" layoutY="429.0" onMouseClicked="#toSignUpPanel" text="No Account? Click to create one" textOverrun="WORD_ELLIPSIS" underline="true" />
-         </children>
-      </Pane>
-   </children>
+<AnchorPane fx:id="panelLoginRegistration" prefHeight="612" prefWidth="923" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="yeamin21.gomail.windows.signings.ControllerLogin">
+    <Pane fx:id="panelLogin" prefHeight="612.0" prefWidth="931.0">
+        <Pane prefHeight="612.0" prefWidth="398.0" style="-fx-background-color: #34495e;">
+            <ImageView fitHeight="182.0" fitWidth="194.0" layoutX="95.0" layoutY="140.0" pickOnBounds="true"
+                       preserveRatio="true">
+                <Image url="@mail.png"/>
+            </ImageView>
+            <Label layoutX="68.0" layoutY="343.0" prefHeight="65.0" prefWidth="262.0" text="Paper Mail">
+                <textFill>
+                    <LinearGradient endX="0.9523809523809523" endY="0.3047619047619048"
+                                    startY="0.06666666666666665">
+                        <stops>
+                            <Stop>
+                                <color>
+                                    <Color red="0.44834306836128235" green="0.8421052694320679"
+                                           blue="0.8355425596237183"/>
+                                </color>
+                            </Stop>
+                            <Stop offset="1.0">
+                                <color>
+                                    <Color red="0.9907407164573669" green="1.0" blue="0.999691367149353"/>
+                                </color>
+                            </Stop>
+                        </stops>
+                    </LinearGradient>
+                </textFill>
+                <font>
+                    <Font size="44.0"/>
+                </font>
+            </Label>
+        </Pane>
+        <Button fx:id="buttonLogin" layoutX="635.0" layoutY="359.0" mnemonicParsing="false" onMouseClicked="#Login"
+                prefHeight="35.0" prefWidth="111.0" text="Login"/>
+        <PasswordField fx:id="passwordfieldPassword" layoutX="558.0" layoutY="289.0" prefHeight="35.0"
+                       prefWidth="252.0"/>
+        <TextField fx:id="textfieldEmail" layoutX="558.0" layoutY="219.0" prefHeight="35.0" prefWidth="252.0"/>
+        <Label fx:id="labelCreateAccount" layoutX="606.0" layoutY="429.0" onMouseClicked="#toSignUpPanel"
+               text="No Account? Click to create one" textOverrun="WORD_ELLIPSIS" underline="true"/>
+    </Pane>
 </AnchorPane>

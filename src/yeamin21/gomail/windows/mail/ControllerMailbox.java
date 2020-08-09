@@ -25,7 +25,7 @@ public class ControllerMailbox {
     TextField txtFieldCategory;
     @FXML
     ListView listCategories;
-    ObservableList<MailCategory>categories= FXCollections.observableArrayList();
+    final ObservableList<MailCategory>categories= FXCollections.observableArrayList();
 
     @FXML
     public void initialize(){
@@ -34,9 +34,7 @@ public class ControllerMailbox {
         MailCategory readMailCategory=new MailCategory();
         readMailCategory.setUser(ControllerLogin.userEmail);
         readMailCategory.Read();
-        for (MailCategory mailcategory:readMailCategory.mailCategories) {
-            categories.add(mailcategory);
-        }
+        categories.addAll(readMailCategory.mailCategories);
         listCategories.getItems().addAll(categories);
 
         listCategories.setOnMouseClicked(event ->
@@ -58,9 +56,9 @@ public class ControllerMailbox {
     @FXML
     void AddNewCategory()
     {
-        DatabaseOperations mailCategory=new MailCategory();
+        MailCategory mailCategory=new MailCategory();
         mailCategory.setUser(ControllerLogin.userEmail);
-        ((MailCategory)mailCategory).setCategoryName(txtFieldCategory.getText());
+        mailCategory.setCategoryName(txtFieldCategory.getText());
         mailCategory.Create();
     }
     @FXML
@@ -80,6 +78,10 @@ public class ControllerMailbox {
     void actionArchive(){new SwitchPane("Archive.fxml",panelMailboxBody).doSwitch();}
     @FXML
     void actionContact(){new SwitchPane("Contact.fxml",panelMailboxBody).doSwitch();}
+    @FXML
+    void actionDraft(){
+        new SwitchPane("Draft.fxml",panelMailboxBody).doSwitch();
+    }
 
 
 }

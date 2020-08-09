@@ -28,15 +28,17 @@ public class ControllerInbox implements Initializable {
     @FXML
     TableView aTable;
     @FXML
+    final
     ObservableList<Mails> data= FXCollections.observableArrayList();
     @FXML
+    final
     ObservableList<MailCategory>categories=FXCollections.observableArrayList();
     @FXML
     ComboBox comboCategory;
     @FXML
     Button btnAddToCategory;
     Mails selectedMail;
-    static String  loggedInUser=ControllerLogin.userEmail;
+    static final String  loggedInUser=ControllerLogin.userEmail;
 
    @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -55,11 +57,7 @@ public class ControllerInbox implements Initializable {
         FetchMails mail=new FetchMails();
         mail.setUser(loggedInUser);
         mail.Read(mailCategory);
-        for(Mails aMail: mail.mails)
-        {
-            data.add(aMail);
-        }
-
+        data.addAll(mail.mails);
         cSender.setCellValueFactory(new PropertyValueFactory<>("sender"));
         cDate.setCellValueFactory(new PropertyValueFactory<>("date"));
         cSubject.setCellValueFactory(new PropertyValueFactory<>("subject"));
@@ -71,8 +69,8 @@ public class ControllerInbox implements Initializable {
     void getCat()
     {
                 MailCategory ca= (MailCategory) comboCategory.getSelectionModel().getSelectedItem();
-                DatabaseOperations categorizeMail=new FetchMails();
-                ((FetchMails)categorizeMail).addCategory(selectedMail,ca);
+                FetchMails categorizeMail=new FetchMails();
+                categorizeMail.addCategory(selectedMail,ca);
     }
     void addCategoriesToCombobox()
     {
@@ -80,9 +78,7 @@ public class ControllerInbox implements Initializable {
         readMailCategory.setUser(ControllerLogin.userEmail);
         readMailCategory.Read();
         comboCategory.setPromptText("Add to Category");
-        for (MailCategory mailcategory:readMailCategory.mailCategories) {
-            categories.add(mailcategory);
-        }
+        categories.addAll(readMailCategory.mailCategories);
         comboCategory.setItems(categories);
     }
     void addMailsToTable()
@@ -90,10 +86,7 @@ public class ControllerInbox implements Initializable {
         FetchMails mail=new FetchMails();
         mail.setUser(loggedInUser);
         mail.Read();
-        for(Mails aMail: mail.mails)
-        {
-            data.add(aMail);
-        }
+        data.addAll(mail.mails);
 
         cSender.setCellValueFactory(new PropertyValueFactory<>("sender"));
         cDate.setCellValueFactory(new PropertyValueFactory<>("date"));

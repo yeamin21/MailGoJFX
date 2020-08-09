@@ -46,8 +46,8 @@ public class ControllerComposePanel implements Initializable {
         SendMail sendMail=new SendMail();
         sendMail.setSender(ControllerLogin.userEmail.toLowerCase());
         sendMail.setReceiver(textfieldSendTo.getText().toLowerCase().trim());
-        sendMail.setSubject(textfieldSubject.getText().toString().trim());
-        sendMail.setBody(textareaMailBody.getText().toString().trim());
+        sendMail.setSubject(textfieldSubject.getText().trim());
+        sendMail.setBody(textareaMailBody.getText().trim());
         sendMail.Create();
         Clear();
     }
@@ -80,10 +80,9 @@ public class ControllerComposePanel implements Initializable {
             s=(Stage) ComposePanel.getScene().getWindow();
             s.setOnCloseRequest(event ->
             {
-                if(textfieldSendTo.getText()!=null || textareaMailBody.getText()!=null || textfieldSubject.getText()!=null)
+                if(!textfieldSendTo.getText().isEmpty() || !textareaMailBody.getText().isEmpty()|| !textfieldSubject.getText().isEmpty())
                 {
-                    Mails draftMails=new DraftMails();
-                    draftMails.setSender(ControllerLogin.userEmail);
+                    Mails draftMails=new DraftMails(ControllerLogin.userEmail);
                     draftMails.setBody(textareaMailBody.getText());
                     draftMails.setReceiver(textfieldSendTo.getText());
                     draftMails.setSubject(textfieldSubject.getText());

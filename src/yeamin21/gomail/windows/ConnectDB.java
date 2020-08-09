@@ -11,14 +11,14 @@ public class ConnectDB {
             try {
                 Class.forName("com.mysql.jdbc.Driver");
             } catch (ClassNotFoundException ex) {
-
+                ex.printStackTrace();
             }
             Connection con=DriverManager.getConnection(
              "jdbc:mysql://localhost:3306/MailGO","root","root");
             System.out.println("Connected");
             return con;
         } catch (SQLException e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
         return null;
 

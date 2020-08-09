@@ -9,9 +9,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class MailCategory implements DatabaseOperations {
-    Connection con= ConnectDB.connect();
+    final Connection con= ConnectDB.connect();
     private int categoryID;
-    public ArrayList<MailCategory>mailCategories=new ArrayList<>();
+    public final ArrayList<MailCategory>mailCategories=new ArrayList<>();
     private String categoryName,loggedInUser;
 
     public int getCategoryID() {

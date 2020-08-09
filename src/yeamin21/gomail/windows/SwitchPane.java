@@ -6,9 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.layout.Pane;
 
 public class SwitchPane {
-    public String panelToSwitch;
-    public Pane switchOnPanel;
-    private FXMLLoader fxmlLoader;
+    public final String panelToSwitch;
+    public final Pane switchOnPanel;
+    private final FXMLLoader fxmlLoader;
 
     public SwitchPane(String panelToSwitch, Pane switchOnPanel) {
         this.switchOnPanel = switchOnPanel;

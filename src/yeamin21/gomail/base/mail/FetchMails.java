@@ -18,8 +18,8 @@ import java.util.ArrayList;
  * @author yeami
  */
 public class FetchMails implements DatabaseOperations {
-    Connection con=ConnectDB.connect();
-    public ArrayList<Mails>mails=new ArrayList<>();
+    final Connection con=ConnectDB.connect();
+    public final ArrayList<Mails>mails=new ArrayList<>();
     Mails mail;
     private String loggedInUser;
     public FetchMails(Mails mail)
@@ -92,7 +92,7 @@ public class FetchMails implements DatabaseOperations {
                 mails.add(aMail);
             }
         } catch (SQLException ex) {
-            System.out.println(ex);
+          ex.printStackTrace();
         }
 
     }

@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDatabaseOperations extends Users implements DatabaseOperations {
-    Connection connection= ConnectDB.connect();
+    final Connection connection= ConnectDB.connect();
     @Override
     public void setUser(String user) {
         this.loggedInUser=user;
@@ -32,7 +32,7 @@ public class UserDatabaseOperations extends Users implements DatabaseOperations 
             preparedStatement.execute();
 
         } catch (SQLException throwables) {
-            System.out.println(throwables);
+           throwables.printStackTrace();
         }
 
     }
@@ -64,7 +64,7 @@ public class UserDatabaseOperations extends Users implements DatabaseOperations 
             }
 
         } catch (SQLException throwables) {
-            System.out.println(throwables);
+           throwables.printStackTrace();
         }
         return null;
     }

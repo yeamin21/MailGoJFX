@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
+<?import javafx.scene.layout.AnchorPane?>
 <AnchorPane prefHeight="612.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="yeamin21.gomail.windows.mail.ControllerArchive">
-    <children>
         <TextArea fx:id="mailBody" layoutX="348.0" layoutY="36.0" prefHeight="499.0" prefWidth="338.0" />
         <TableView fx:id="aTable" layoutX="11.0" layoutY="36.0" onMouseClicked="#onTableClick" prefHeight="499.0" prefWidth="332.0">
             <columns>
@@ -17,6 +15,5 @@
         <Button layoutX="634.0" layoutY="549.0" mnemonicParsing="false" onMouseClicked="#DeleteSelectedMail" text="Delete" />
         <Button layoutX="574.0" layoutY="549.0" mnemonicParsing="false" text="Reply" />
 
-    </children>
 </AnchorPane>
 

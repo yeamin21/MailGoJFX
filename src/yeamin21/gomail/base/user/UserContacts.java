@@ -13,9 +13,9 @@ import java.util.ArrayList;
 public class UserContacts extends Users implements DatabaseOperations {
     private Mails mail;
     private Users contact;
-    Connection con= ConnectDB.connect();
+    final Connection con= ConnectDB.connect();
     public String loggedInUser;
-    public ArrayList<UserContacts>contacts=new ArrayList<>();
+    public final ArrayList<UserContacts>contacts=new ArrayList<>();
     public UserContacts(){}
     public UserContacts(Mails mail)
     {

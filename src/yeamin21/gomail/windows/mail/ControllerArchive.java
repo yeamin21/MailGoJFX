@@ -23,9 +23,10 @@ public class ControllerArchive implements Initializable {
     @FXML
     TableView aTable;
     @FXML
+    final
     ObservableList<Mails> data= FXCollections.observableArrayList();
     Mails selectedMail;
-    static String loggedInUser= ControllerLogin.userEmail;
+    static final String loggedInUser= ControllerLogin.userEmail;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -36,9 +37,7 @@ public class ControllerArchive implements Initializable {
         ArchivedMails aMail=new ArchivedMails();
         aMail.setUser(loggedInUser);
         aMail.Read();
-        for(Mails mail: aMail.archivedMails){
-           data.add(mail);
-        }
+        data.addAll(aMail.archivedMails);
         cSender.setCellValueFactory(new PropertyValueFactory<>("sender"));
         cDate.setCellValueFactory(new PropertyValueFactory<>("date"));
         cSubject.setCellValueFactory(new PropertyValueFactory<>("subject"));

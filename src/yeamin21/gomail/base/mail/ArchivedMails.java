@@ -9,11 +9,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ArchivedMails extends Mails implements DatabaseOperations {
-    Connection con= ConnectDB.connect();
+    final Connection con= ConnectDB.connect();
     public String loggedInUser;
-    public ArrayList<Mails> archivedMails=new ArrayList<>();
+    public final ArrayList<Mails> archivedMails=new ArrayList<>();
     Mails mail;
-    public ArchivedMails(){};
+    public ArchivedMails(){}
+
     public ArchivedMails(Mails mail)
     {
         this.mail=mail;

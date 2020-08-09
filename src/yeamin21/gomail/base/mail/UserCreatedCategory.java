@@ -11,8 +11,8 @@ import java.util.ArrayList;
 public class UserCreatedCategory implements DatabaseOperations{
     private String categoryName,loggedInUser;
     String userEmail;
-    Connection con= ConnectDB.connect();
-    ArrayList<UserCreatedCategory>userCreatedCategory=new ArrayList<>();
+    final Connection con= ConnectDB.connect();
+    final ArrayList<UserCreatedCategory>userCreatedCategory=new ArrayList<>();
 
     public UserCreatedCategory() {
 

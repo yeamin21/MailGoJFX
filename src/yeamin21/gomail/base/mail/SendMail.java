@@ -18,7 +18,7 @@ import java.sql.Statement;
  */
 public class SendMail extends Mails implements DatabaseOperations {
    private String receiverEmail,senderEmail;
-    Connection con=ConnectDB.connect();
+    final Connection con=ConnectDB.connect();
     private String loggedInUser;
 
 
@@ -55,13 +55,13 @@ public class SendMail extends Mails implements DatabaseOperations {
                  preparedStatement.execute();
                 }catch(Exception e)
                {
-                   System.out.println(e);
+                  e.printStackTrace();
                }
             }
         }
         catch(Exception e)
         {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 
