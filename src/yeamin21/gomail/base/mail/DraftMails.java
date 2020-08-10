@@ -12,14 +12,6 @@ public class DraftMails extends Mails implements DatabaseOperations{
     final Connection connection= ConnectDB.connect();
     public ArrayList<DraftMails>mails=new ArrayList<>();
     String user;
-    public DraftMails()
-    {
-
-    }
-    public DraftMails(String user)
-    {
-        setUser(user);
-    }
     @Override
     public void setUser(String user) {
     this.user=user;

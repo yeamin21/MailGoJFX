@@ -57,7 +57,7 @@ public class ControllerContact implements Initializable {
     void sendMailToContact()
 {
 
-    SwitchPane switchPane=new SwitchPane("resources\\ComposePanel.fxml",paneContact);
+    SwitchPane switchPane=new SwitchPane("ComposePanel.fxml",paneContact);
     switchPane.doSwitch();
     ControllerComposePanel controllerComposePanel=switchPane.getFxmlLoader().getController();
     controllerComposePanel.setReceiver(selectedUser);

@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import yeamin21.gomail.base.mail.*;
+import yeamin21.gomail.windows.SwitchPane;
 import yeamin21.gomail.windows.signings.ControllerLogin;
 
 import javax.xml.crypto.Data;
@@ -24,6 +25,8 @@ public class ControllerDraft implements Initializable {
     @FXML
     TableView aTable;
     @FXML
+    Button buttonCont;
+    @FXML
     final
     ObservableList<DraftMails> data= FXCollections.observableArrayList();
     @FXML
@@ -33,6 +36,7 @@ public class ControllerDraft implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         addMailsToTable();
+
 
     }
     @FXML
@@ -47,5 +51,14 @@ public class ControllerDraft implements Initializable {
         cSubject.setCellValueFactory(new PropertyValueFactory<>("subject"));
         cBody.setCellValueFactory(new PropertyValueFactory<>("body"));
         aTable.setItems(data);
+    }
+    @FXML
+    void sendMail()
+    {
+        selectedMail= (DraftMails) aTable.getSelectionModel().getSelectedItem();
+        SwitchPane switchPane=new SwitchPane("ComposePanel.fxml",anchorPaneDraft);
+        switchPane.doSwitch();
+        ControllerComposePanel controllerComposePanel=switchPane.getFxmlLoader().getController();
+        controllerComposePanel.setMail(selectedMail);
     }
 }

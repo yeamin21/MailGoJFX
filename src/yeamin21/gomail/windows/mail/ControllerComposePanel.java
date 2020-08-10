@@ -56,7 +56,7 @@ public class ControllerComposePanel implements Initializable {
     @FXML
     public void setMail(Mails x) //from controllerMailbox
     {
-        textfieldSubject.setText("Re: " +x.getSubject());
+        textfieldSubject.setText(x.getSubject());
         textfieldSendTo.setText(x.getReceiver());
 
     }
@@ -80,14 +80,16 @@ public class ControllerComposePanel implements Initializable {
             s=(Stage) ComposePanel.getScene().getWindow();
             s.setOnCloseRequest(event ->
             {
-                if(!textfieldSendTo.getText().isEmpty() || !textareaMailBody.getText().isEmpty()|| !textfieldSubject.getText().isEmpty())
+                if(!textfieldSendTo.getText().isEmpty() || !textareaMailBody.getText().isEmpty() || !textfieldSubject.getText().isEmpty())
                 {
-                    Mails draftMails=new DraftMails(ControllerLogin.userEmail);
+                    Mails draftMails=new DraftMails();
                     draftMails.setBody(textareaMailBody.getText());
                     draftMails.setReceiver(textfieldSendTo.getText());
                     draftMails.setSubject(textfieldSubject.getText());
+                    draftMails.setSender(ControllerLogin.userEmail);
                     ((DatabaseOperations)draftMails).Create();
                 }
+
             });
 
                 }
