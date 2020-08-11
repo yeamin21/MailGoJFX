@@ -18,7 +18,6 @@ import java.util.ArrayList;
  * @author yeami
  */
 public class FetchMails implements DatabaseOperations {
-    final Connection con=ConnectDB.connect();
     public final ArrayList<Mails>mails=new ArrayList<>();
     Mails mail;
     private String loggedInUser;
@@ -51,6 +50,7 @@ public class FetchMails implements DatabaseOperations {
     public void Read() {
 
         try {
+            Connection con= ConnectDB.connect();
             String SQL_GETMAILS="SELECT mail.mail_id, mail.sender_email,mail.receiver_email, mail.sending_date_time,mail_contents.subject, mail_contents.body\n" +
                     "FROM mail\n" +
                     "inner join mail_contents on mail.mail_id=mail_contents.mail_id\n" +
@@ -74,6 +74,7 @@ public class FetchMails implements DatabaseOperations {
 
     public void Read(MailCategory category) {
 
+        Connection con= ConnectDB.connect();
         try {
             String SQL_GETMAILS="SELECT mail.mail_id, mail.sender_email,mail.receiver_email, mail.sending_date_time,mail_contents.subject, mail_contents.body," +
                     " category.category_id, category_name FROM mail\n" +
@@ -99,6 +100,7 @@ public class FetchMails implements DatabaseOperations {
 
     @Override
     public void Update() {
+        Connection con= ConnectDB.connect();
         String SQL_UPDATE="UPDATE mail set status_read=true where mail_id="+this.mail.getCode();
         try {
             PreparedStatement preparedStatement=con.prepareStatement(SQL_UPDATE);
@@ -112,6 +114,7 @@ public class FetchMails implements DatabaseOperations {
 
     @Override
     public void Delete() {
+        Connection con= ConnectDB.connect();
         String SQL_DELETE="Delete from mail where mail_id="+this.mail.getCode();
         try {
             PreparedStatement preparedStatement=con.prepareStatement(SQL_DELETE);
@@ -123,6 +126,7 @@ public class FetchMails implements DatabaseOperations {
     }
     public void addCategory(Mails selectedMail, MailCategory category)
     {
+        Connection con= ConnectDB.connect();
         String SQL_ADDCATEGORY="INSERT INTO mail_category(category_id,mail_id) VALUES(?,?)";
         try {
             PreparedStatement preparedStatement=con.prepareStatement(SQL_ADDCATEGORY);

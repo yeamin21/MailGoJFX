@@ -9,7 +9,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class MailCategory implements DatabaseOperations {
-    final Connection con= ConnectDB.connect();
     private int categoryID;
     public final ArrayList<MailCategory>mailCategories=new ArrayList<>();
     private String categoryName,loggedInUser;
@@ -42,6 +41,7 @@ public class MailCategory implements DatabaseOperations {
 
     @Override
     public void Create() {
+        Connection con= ConnectDB.connect();
         String SQL_INSERT="Insert into category (category_name,belongs_to) values(?,?)";
         try {
             PreparedStatement statement=con.prepareStatement(SQL_INSERT);
@@ -56,6 +56,7 @@ public class MailCategory implements DatabaseOperations {
     @Override
     public void Read() {
         String SQL_READ="Select * from category where belongs_to='"+loggedInUser+"'";
+        Connection con= ConnectDB.connect();
         try {
             PreparedStatement statement = con.prepareStatement(SQL_READ);
             ResultSet resultSet = statement.executeQuery();

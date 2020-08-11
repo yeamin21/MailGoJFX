@@ -46,8 +46,6 @@ public class ControllerInbox implements Initializable {
        addMailsToTable();
        addCategoriesToCombobox();
 
-
-
     }
 
     @FXML
